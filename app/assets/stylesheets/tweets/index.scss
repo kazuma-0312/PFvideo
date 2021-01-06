@@ -1,0 +1,139 @@
+@charset "utf-8";
+
+html{
+	overflow-x:hidden;
+}
+
+body{
+	color:#333;
+	line-height:1.8;
+	letter-spacing:0.03em;
+	font-family:Helvetica,"メイリオ",Meiryo,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","ＭＳ Ｐゴシック","MS PGothic",Arial,Osaka,Sans-Serif;
+  background-color:#DDDDDD;
+	background-repeat:no-repeat,repeat;
+	background-position:50% 0;
+	background-attachment:fixed,scroll;
+	
+	background-repeat:repeat\9;
+	background-position:0 0\9;
+}
+
+
+/*-----------------------------------------------------
+nonvisual-menu
+-------------------------------------------------------*/
+div.nonvisual-menu{
+	width:0;
+	height:0;
+	font-size:1px;
+	line-height:1px;
+	overflow:hidden;
+	/* except MacIE \*/position: absolute;/* end */
+	left:0;
+	top:0;
+	color:#fff;
+}
+
+div.nonvisual-menu a{
+	text-decoration:none;
+	font-size:1px;
+	line-height:1px;
+	color:#fff;
+}
+#main-Contents img{
+	position:absolute;
+	border:none!important;
+	height:1px;
+	top:0px;
+	left:0px;
+}
+
+/*-----------------------------------------------------
+Container
+-------------------------------------------------------*/
+#Container{
+	max-width:100%;
+  min-width:680px;
+  background-color: #dddddd;
+}
+
+/*-----------------------------------------------------
+GlobalHeader
+-------------------------------------------------------*/
+#GlobalHeader{
+	width:100%;
+	min-width:680px;
+}
+
+/* hgroup
+---------------------*/
+#GlobalHeader hgroup{
+	width:263px;
+	height:263px;
+	position:fixed;
+	top:0;
+	left:0;
+	z-index:100;
+}
+
+/* h1 */
+#GlobalHeader hgroup h1 a{
+  font-size: 30px;
+	width:133px;
+	height:40px;
+	position:absolute;
+	top:32px;
+	left:40px;
+  color:black;
+  text-decoration: none;
+}
+
+#GlobalHeader div.head-inline{
+	max-width:76%;
+	min-width:680px;
+	overflow:hidden;
+	margin:0 auto 0 auto;
+}
+
+/* GlobalNavi
+---------------------*/
+#GlobalHeader div.navigation{
+	float:right;
+	display:inline;
+	padding:33px 0 0 0;
+	border-top:3px solid #000000;
+}
+
+#GlobalHeader div.navigation nav{
+	float:left;
+	display:inline;
+	margin:2px 0 0 0;
+}
+#GlobalHeader div.navigation nav ul#GlobalNavi{
+	width:100%;
+}
+
+#GlobalHeader div.navigation nav ul#GlobalNavi li{
+	float:left;
+	display:inline;
+	margin:0 10px 0 0;
+	font-family:Helvetica;
+	font-weight:700;
+}
+
+#GlobalHeader div.navigation nav ul#GlobalNavi li a{
+	display:block;
+	padding:2px 8px 2px 8px;
+	text-shadow:1px 1px 0 #F4F4F4;
+	text-decoration:none;
+	color:#000000;
+}
+
+#GlobalHeader div.navigation nav ul#GlobalNavi li a:hover,
+#GlobalHeader div.navigation nav ul#GlobalNavi li.active a{
+	color:#fff;
+	text-shadow:none;
+	border-radius:3px;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+}
