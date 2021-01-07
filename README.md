@@ -16,11 +16,12 @@
 
 ## tweetsテーブル
 
-| Column        | Type           | Options                  |
-| ------------- | -------------- | ------------------------ |
-| video        | string          | nul:  false              |
-| text         | text            | null: false              |
-| user         | references      | foreign_key: true        |
+| Column        | Type            | Options                  |
+| ------------- | --------------- | ------------------------ |
+| video         | string          | nul:  false              |
+| text          | text            | null: false              |
+| title         | string          | null: false              |
+| user          | references      | foreign_key: true        |
 
 ### Association
 - has_many :tags, through: :tweet_tag_relations
