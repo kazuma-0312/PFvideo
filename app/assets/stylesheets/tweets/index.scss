@@ -37,7 +37,7 @@
   width: 5vh;
   border: 0;
   cursor: pointer;
-  background-color: #3ccace;
+  background-color: #CCFFCC;
   padding: 8px;
 }
 
@@ -122,4 +122,55 @@
   line-height: 32px;
   margin-right: 3vw;
   color: #333333;
+}
+.main {
+  background:#CCFFCC;
+  height: 80vh;
+  width: auto;
+}
+
+.main>.title {
+  font-size: 5vh;
+  line-height: 1.4;
+  font-weight: bold;
+  margin-left: 45vw;
+}
+
+.main>.subtitle {
+  font-size: 3vh;
+  margin: 5vh 5vh;
+  text-decoration: none;
+  color: #3ccace;
+  font-weight: bold;
+}
+
+.tweet-img-content {
+  position: relative;
+}
+
+.tweet-img {
+  width: 33vh;
+  height: 20vh;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.tweet-info {
+  color: black;
+  padding: 1vw;
+}
+
+.tweet-name {
+ font-size: 2.5vh;
+}
+
+.footer {
+  background-color: #fff;
+  padding: 10px 0;
+  width: auto;
+}
+.copyright {
+  text-align: center;
+  color: #333333;
+  font-size: 10px;
 }
