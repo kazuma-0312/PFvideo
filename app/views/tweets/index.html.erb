@@ -1,0 +1,19 @@
+
+  <%# 投稿一覧 %>
+<main class="main">
+  <div class="inner">
+    <%# ログインしているときは以下を表示する %>
+      <div class="greeting">
+        <%= link_to 'New Tweet', "#", class:"shadow" %>
+      </div>
+    <%# // ログインしているときは上記を表示する %>
+    <div class="card_wrapper">
+      <div class="card">
+          <%= link_to image_tag("item-sample.png", class:"tweet_img"), '#' %>
+        <div class="card_body">
+          <%= link_to 'タイトル',"#", class:"tweet_title"%>
+          <%= link_to '名前', "#", class:"tweet_user" %>
+        </div>
+      </div>
+    </div>
+</main>
