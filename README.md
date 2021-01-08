@@ -18,7 +18,7 @@
 
 | Column        | Type            | Options                  |
 | ------------- | --------------- | ------------------------ |
-| video         | string          | nul:  false              |
+| youtube_url   | string          | nul:  false              |
 | text          | text            | null: false              |
 | title         | string          | null: false              |
 | user          | references      | foreign_key: true        |
