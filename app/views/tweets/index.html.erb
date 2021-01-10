@@ -1,19 +1,24 @@
-
+<%= render "shared/header" %>
   <%# 投稿一覧 %>
 <main class="main">
   <div class="inner">
     <%# ログインしているときは以下を表示する %>
       <div class="greeting">
-        <%= link_to 'New Tweet', "#", class:"shadow" %>
+        <%= link_to 'New Tweet',new_tweet_path, class:"shadow" %>
       </div>
     <%# // ログインしているときは上記を表示する %>
+  <% @tweets.each do |tweet| %>  
     <div class="card_wrapper">
       <div class="card">
-          <%= link_to image_tag("item-sample.png", class:"tweet_img"), '#' %>
+        <iframe width="350" height="250" src="https://www.youtube.com/embed/<%= tweet.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <div class="card_body">
-          <%= link_to 'タイトル',"#", class:"tweet_title"%>
+          <%= tweet.title %>
+          <%= tweet.text%>
           <%= link_to '名前', "#", class:"tweet_user" %>
         </div>
       </div>
     </div>
+  <% end %>  
 </main>
+
+<%= render "shared/footer" %>
