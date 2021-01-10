@@ -1,0 +1,15 @@
+<div class="contents row">
+  <p><%= @nickname %>さんの投稿一覧</p>
+  <% @tweets.each do |tweet| %>  
+    <div class="card_wrapper">
+      <div class="card">
+        <iframe width="350" height="250" src="https://www.youtube.com/embed/<%= tweet.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="card_body">
+          <%= tweet.title %>
+          <%= tweet.text%>
+          <%= link_to '名前', "#", class:"tweet_user" %>
+        </div>
+      </div>
+    </div>
+  <% end %> 
+</div>
