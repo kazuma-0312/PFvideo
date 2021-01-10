@@ -1,0 +1,21 @@
+<%= form_with(model: @tweet, local: true) do |f| %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :youtube_url %>
+    <%= f.text_field :youtube_url %>
+  </div>
+
+  <div class="field">
+    <%= f.label :text %>
+    <%= f.text_area :text %>
+  </div>
+
+  <div class="sell-btn-contents">
+      <%= f.submit "Tweet", class:"sell-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+  </div>
+<% end %>
