@@ -60,33 +60,6 @@
 ### Association
 - has_many :user
 
-## messagesテーブル
-
-| Column        | Type           | Options                  |
-| ------------- | -------------- | ------------------------ |
-| message       | text           | null: false              |
-| user_id       | references     | foreign_key: true        |
-| room_id       | references     | foreign_key: true        |
-
-### Association
-
-- belongs_to :user
-- belongs_to :room
-
-### roomsテーブル
-
-### Association
-
-    has_many :messages
-    has_many :entries
-    has_many :users, through: :entries
-
-## entriesテーブル
-
-| Column        | Type           | Options                  |
-| ------------- | -------------- | ------------------------ |
-| user_id       | references     | foreign_key: true        |
-| room_id       | references     | foreign_key: true        |
 
 ### Association
 - belongs_to :user
