@@ -5,6 +5,4 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          has_many :tweets
-
-         validates :nickname,        presence: true
 end
