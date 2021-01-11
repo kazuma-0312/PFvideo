@@ -1,12 +1,12 @@
 <%= render "shared/header" %>
   <%# 投稿一覧 %>
 <main class="main">
-  <div class="inner">
     <%# ログインしているときは以下を表示する %>
       <div class="greeting">
         <%= link_to 'New Tweet',new_tweet_path, class:"shadow" %>
       </div>
     <%# // ログインしているときは上記を表示する %>
+  <ul class='tweet-lists'>  
   <% @tweets.each do |tweet| %>  
     <div class="card_wrapper">
       <div class="card">
@@ -19,6 +19,7 @@
       </div>
     </div>
   <% end %>  
+</ul>
 </main>
 
 <%= render "shared/footer" %>

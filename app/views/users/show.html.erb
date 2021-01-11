@@ -1,5 +1,10 @@
-<div class="contents row">
-  <p><%= @nickname %>さんの投稿一覧</p>
+<%= render "shared/header" %>
+
+<div class="main">
+<div class="user_info">
+  <p class="user_name"><%= @nickname %>さんの投稿一覧</p>
+</div>  
+<ul class='tweet-lists'>  
   <% @tweets.each do |tweet| %>  
     <div class="card_wrapper">
       <div class="card">
@@ -12,4 +17,6 @@
       </div>
     </div>
   <% end %> 
+</ul>
 </div>
+<%= render "shared/footer" %>
