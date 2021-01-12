@@ -15,11 +15,7 @@
         <%= f.text_area :title, class:"tweets-title" %>
         <%# 商品名と商品説明 %>
     <div class="new-tweets">
-      <div class="weight-bold-text">
-        YouTube Url
-        <span class="indispensable">必須</span>
-      </div>
-      <%= f.text_area :youtube_url, class:"tweets-title", id:"tweet-name" %>
+
       <div class="tweets-explain">
         <div class="weight-bold-text">
           投稿の説明
@@ -39,5 +35,3 @@
     <% end %>
   </div>  
 </div>
-
-<%= render "shared/footer" %>
