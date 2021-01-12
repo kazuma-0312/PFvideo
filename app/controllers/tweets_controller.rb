@@ -13,7 +13,6 @@ class TweetsController < ApplicationController
     url = params[:tweet][:youtube_url]
     url = url.last(11)
     @tweet.youtube_url = url
-
     if @tweet.save
       redirect_to root_path
     else  
@@ -22,6 +21,7 @@ class TweetsController < ApplicationController
   end
 
   def show
+    @tweet = Tweet.find(params[:id])
   end
 
   private
