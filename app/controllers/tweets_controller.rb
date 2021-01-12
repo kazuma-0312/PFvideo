@@ -24,6 +24,19 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id])
   end
 
+  def destroy
+    @tweet = Tweet.find(params[:id])
+    if current_user.id == @tweet.user_id
+      if @tweet.destroy
+        redirect_to root_path
+      else
+        render :show, alert: "Failed to delete"
+      end
+    else
+      redirect_to root_path
+    end
+  end
+
   private
   def tweet_params
     params.require(:tweet).permit(:title, :youtube_url, :text).merge(user_id: current_user.id)
