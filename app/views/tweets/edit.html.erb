@@ -7,13 +7,13 @@
     <h2 class="tweets-sell-title">投稿の情報を入力</h2>
     <%= form_with(model: @tweet, local: true) do |f| %>
 
-    <%# 出品画像 %>
+
       <div class="weight-bold-text">
         動画のタイトル
         <span class="indispensable">必須</span>
       </div>
         <%= f.text_area :title, class:"tweets-title" %>
-        <%# 商品名と商品説明 %>
+
     <div class="new-tweets">
 
       <div class="tweets-explain">
@@ -24,7 +24,6 @@
         <%= f.text_area :text, class:"tweets-text", id:"tweett-info" %>
       </div>
     </div>
-    <%# /投稿内容/ %>
     
         <%# 下部ボタン %>
     <div class="sell-btn-contents">
