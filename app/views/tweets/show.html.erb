@@ -6,7 +6,7 @@
       <%= @tweet.title %>
     </h2>
     <div class='tweet-img-content'>
-      <iframe width="350" height="250" src="https://www.youtube.com/embed/<%= @tweet.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="550" height="350" src="https://www.youtube.com/embed/<%= @tweet.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     <div class="tweet-price-box">
       <span class="tweet-price">
@@ -27,9 +27,11 @@
       <% end %>
     </div>
   <% end %>  
-    <%= link_to '商品の編集', edit_tweet_path, method: :get, class: "tweet-red-btn" %>
+  <% if user_signed_in? && current_user.id == @tweet.user.id %>
+    <%= link_to '投稿の編集', edit_tweet_path, method: :get, class: "tweet-red-btn" %>
     <p class='or-text'>or</p>
     <%= link_to '削除', tweet_path, method: :delete, class:'tweet-destroy' %>
+  <% end %>  
 
 
     <div class="option">
