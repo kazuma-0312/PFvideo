@@ -13,20 +13,33 @@
          <%= @tweet.text %>
       </span>
     </div>
-  <% if user_signed_in? %>
+  <% if user_signed_in? && %>
     <div class="comment-box">
-      <%= form_with local: true do |f| %>
-        <%= f.text_area :text, class: "comment-text" %>
+      <%= form_with(model: [@tweet, @comment],local: true) do |f| %>
+        <%= f.text_area :text, class: "comment-talk" %>
         <p class="comment-warn">
           相手のことを考え丁寧なコメントを心がけましょう。
           <br>
           不快な言葉遣いなどは利用制限や退会処分となることがあります。
         </p>
         <%= f.submit 'コメントする', class: "comment-btn" %>
-          
+      <div class='comments-all'>  
+        <ul id="comments">
+          <% if @comments%>
+            <%# 投稿に紐づくコメントを一覧する処理を記述する %>
+            <% @comments.reverse_each do |comment| %>
+              <li class="comments_list">
+                <p><%= comment.text %>
+                <%= link_to comment.user.nickname, user_path(comment.user), class: :comment_user %></p>
+              </li>
+            <% end %>
+          <% end %>  
+          <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
+        </ul>
+      </div>  
       <% end %>
     </div>
-  <% end %>  
+  <% end   %>
   <% if user_signed_in? && current_user.id == @tweet.user.id %>
     <%= link_to '投稿の編集', edit_tweet_path, method: :get, class: "tweet-red-btn" %>
     <p class='or-text'>or</p>
