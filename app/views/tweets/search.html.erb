@@ -1,0 +1,20 @@
+<%= render "shared/header" %>
+  <%# 投稿一覧 %>
+<main class="main">
+  <ul class='tweet-lists'>  
+  <% @tweets.each do |tweet| %>  
+    <div class="card_wrapper">
+      <div class="card">
+        <iframe width="300" height="200" src="https://www.youtube.com/embed/<%= tweet.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="card_body">
+          <%= link_to tweet.title, tweet_path(tweet.id) %>
+          <%= tweet.text%>
+          <%= link_to "#{tweet.user.nickname}", user_path(tweet.user_id),class:"tweet_user" %>
+        </div>
+      </div>
+    </div>
+  <% end %>  
+  </ul>
+</main>
+
+<%= render "shared/footer" %>
