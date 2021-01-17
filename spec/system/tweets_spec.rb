@@ -110,3 +110,29 @@ RSpec.describe 'ツイート削除', type: :system do
     end
   end
 end
+
+RSpec.describe 'ツイート詳細', type: :system do
+  before do
+    @tweet = FactoryBot.create(:tweet)
+  end
+  it 'ログインしたユーザーはツイート詳細ページに遷移してコメント投稿欄が表示される' do
+    # ログインする
+    sign_in(@tweet.user)
+    # 詳細ページに遷移する
+    visit tweet_path(@tweet)
+    # 詳細ページにツイートの内容が含まれている
+    expect(page).to have_content("#{@tweet.title}")
+    expect(page).to have_content("#{@tweet.text}")
+    # コメント用のフォームが存在する
+    expect(page).to have_selector 'form'
+  end
+  it 'ログインしていない状態でツイート詳細ページに遷移できる' do
+    # トップページに移動する
+    visit root_path
+    # 詳細ページに遷移する
+    visit tweet_path(@tweet)
+    # 詳細ページにツイートの内容が含まれている
+    expect(page).to have_content("#{@tweet.title}")
+    expect(page).to have_content("#{@tweet.text}")
+  end
+end
