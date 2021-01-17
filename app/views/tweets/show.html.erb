@@ -13,7 +13,7 @@
          <%= @tweet.text %>
       </span>
     </div>
-  <% if user_signed_in? && %>
+  <% if user_signed_in? %>
     <div class="comment-box">
       <%= form_with(model: [@tweet, @comment],local: true) do |f| %>
         <%= f.text_area :text, class: "comment-talk" %>
@@ -46,15 +46,20 @@
     <%= link_to '削除', tweet_path, method: :delete, class:'tweet-destroy' %>
   <% end %>  
 
-
+  <% if user_signed_in? %>
     <div class="option">
-      <div class="favorite-btn">
-        <span>お気に入り 0</span>
+
+      <div class="favorite-btn">  
+      <% if current_user.liked_by?(@tweet.id) %>
+      <%= link_to 'いいねを外す', tweet_destroy_like_path(@tweet), method: :DELETE %><%= @tweet.likes.count %>
+      <% else %>     
+        <%= link_to 'いいね', tweet_create_like_path(@tweet), method: :POST %>  <%= @tweet.likes.count %>
+      <% end %>  
       </div>
       <div class="report-btn">
-     
-        <span>不適切な商品の通報</span>
+      <span>不適切な商品の通報</span>
       </div>
     </div>
+  <% end %>  
   </div>
 </div>

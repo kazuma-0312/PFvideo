@@ -24,6 +24,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id])
     @comments = @tweet.comments.includes(:user)
     @comment = Comment.new
+    @like = Like.new
   end
 
   def edit
