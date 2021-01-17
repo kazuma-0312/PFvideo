@@ -1,5 +1,6 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :group_tweet, only: [:show, :edit, :update, :destroy]
   def index
     @tweets = Tweet.includes(:user)
   end
@@ -21,20 +22,17 @@ class TweetsController < ApplicationController
   end
 
   def show
-    @tweet = Tweet.find(params[:id])
     @comments = @tweet.comments.includes(:user)
     @comment = Comment.new
     @like = Like.new
   end
 
   def edit
-    @tweet = Tweet.find(params[:id])
     redirect_to root_path unless current_user.id == @tweet.user_id
   end
     
 
   def update
-    @tweet = Tweet.find(params[:id])
     if @tweet.update(tweet_params)
       redirect_to tweet_path
     else
@@ -43,7 +41,7 @@ class TweetsController < ApplicationController
   end
 
   def destroy
-    @tweet = Tweet.find(params[:id])
+    
     if current_user.id == @tweet.user_id
       if @tweet.destroy
         redirect_to root_path
@@ -62,5 +60,9 @@ class TweetsController < ApplicationController
   private
   def tweet_params
     params.require(:tweet).permit(:title, :youtube_url, :text).merge(user_id: current_user.id)
+  end
+
+  def group_tweet
+    @tweet = Tweet.find(params[:id])
   end
 end
