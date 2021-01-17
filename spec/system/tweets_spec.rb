@@ -85,3 +85,28 @@ RSpec.describe 'ツイート編集', type: :system do
     end
   end
 end
+
+RSpec.describe 'ツイート削除', type: :system do
+  before do
+    @tweet1 = FactoryBot.create(:tweet)
+    @tweet2 = FactoryBot.create(:tweet)
+  end
+  context 'ツイート削除ができるとき' do
+    it 'ログインしたユーザーは自らが投稿したツイートの削除ができる' do
+      # ツイート1を投稿したユーザーでログインする
+      sign_in(@tweet1.user)
+      # トップページに遷移する
+      visit root_path
+    end
+  end
+  context 'ツイート削除ができないとき' do
+    it 'ログインしたユーザーは自分以外が投稿したツイートの削除ができない' do
+      # ツイート1を投稿したユーザーでログインする
+      sign_in(@tweet1.user)
+    end
+    it 'ログインしていないとツイートの削除ボタンがない' do
+      # トップページに移動する
+      visit root_path
+    end
+  end
+end
