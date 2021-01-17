@@ -6,7 +6,9 @@ class User < ApplicationRecord
 
          has_many :tweets
          has_many :comments
-         has_many :likes
+         has_many :likes, dependent: :destroy
+         has_many :like_tweets, through: :likes, source: :tweet
+
 
          def liked_by?(tweet_id)
           likes.where(tweet_id: tweet_id).exists?
