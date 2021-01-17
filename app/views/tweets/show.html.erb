@@ -16,7 +16,7 @@
   <% if user_signed_in? %>
     <div class="comment-box">
       <%= form_with(model: [@tweet, @comment],local: true) do |f| %>
-        <%= f.text_area :text, class: "comment-talk" %>
+        <%= f.text_area :text, class: "comment-talk", id: "comment_text"%>
         <p class="comment-warn">
           相手のことを考え丁寧なコメントを心がけましょう。
           <br>

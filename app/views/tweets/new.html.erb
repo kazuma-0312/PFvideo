@@ -12,20 +12,20 @@
         動画のタイトル
         <span class="indispensable">必須</span>
       </div>
-        <%= f.text_area :title, class:"tweets-title" %>
+        <%= f.text_area :title, class:"tweets-title", id:"tweet_title" %>
         <%# 商品名と商品説明 %>
     <div class="new-tweets">
       <div class="weight-bold-text">
         YouTube Url
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :youtube_url, class:"tweets-title", id:"tweet-name" %>
+      <%= f.text_area :youtube_url, class:"tweets-title", id:"tweet_url" %>
       <div class="tweets-explain">
         <div class="weight-bold-text">
           投稿の説明
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :text, class:"tweets-text", id:"tweett-info" %>
+        <%= f.text_area :text, class:"tweets-text", id:"tweet_text" %>
       </div>
     </div>
     <%# /投稿内容/ %>
