@@ -7,6 +7,7 @@
   padding: 2vh 15vw;
   display: flex;
   flex-direction: column;
+  background-color: #fff;
 }
 
 .search-bar-contents {
@@ -124,23 +125,62 @@
   color: #333333;
 }
 
-.main {
-  background: 
-  radial-gradient(black 3px, transparent 4px),
-  radial-gradient(black 3px, transparent 4px),
-  linear-gradient(#fff 4px, transparent 0),
-  linear-gradient(45deg, transparent 74px, transparent 75px, #a4a4a4 75px, #a4a4a4 76px, transparent 77px, transparent 109px),
-  linear-gradient(-45deg, transparent 75px, transparent 76px, #a4a4a4 76px, #a4a4a4 77px, transparent 78px, transparent 109px),
-  #fff;
-  background-size: 109px 109px, 109px 109px,100% 6px, 109px 109px, 109px 109px;
-  background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
-  width: auto;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10vh;
+$backWidth: 512px; $backHeight: 432px;
+$bushesWidth: 508px; $bushesHeight: 79px;
+$groundWidth: 68px; $groundHeight: 22px;
+$marioWidth: 30px; $marioHeight: 54px;
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
 }
+
+body {
+  height: 100%;
+  background-image:
+    url('https://github.com/Kageetai/mario-background-parallax/blob/master/img/mario.gif?raw=true'),
+    url('https://github.com/Kageetai/mario-background-parallax/blob/master/img/ground.png?raw=true'),
+    url('https://github.com/Kageetai/mario-background-parallax/blob/master/img/bushes.png?raw=true'),
+    url('https://raw.githubusercontent.com/Kageetai/mario-background-parallax/master/img/back.png?raw=true');
+  background-color: #F8E0B0;
+  background-repeat:
+    no-repeat,
+    repeat-x,
+    repeat-x,
+    repeat-x;
+  background-position:
+    left 30% bottom $groundHeight,
+    left 0px bottom 0px,
+    left 0px bottom $groundHeight,
+    left 0px bottom 0px;
+  animation: back 15s infinite linear;
+}
+
+@keyframes back {
+  0% {
+    background-position:
+      left 30% bottom $groundHeight,
+      left 0px bottom 0px,
+      left 0px bottom $groundHeight,
+      left 0px bottom 0px;
+  }
+  50% {
+    background-position:
+      left 50% bottom $groundHeight,
+      left (-($groundWidth * 12)) bottom 0px,
+      left (-($bushesWidth * 1)) bottom $groundHeight,
+      left (-($backWidth / 2)) bottom 0px;
+  }
+  100% {
+    background-position:
+      left 30% bottom $groundHeight,
+      left (-($groundWidth * 24)) bottom 0px,
+      left (-($bushesWidth * 2)) bottom $groundHeight,
+      left (-$backWidth) bottom 0px;
+  }
+}
+
 .greeting{
    margin-bottom: 20px;
    flex-wrap: wrap;
@@ -180,7 +220,6 @@
   margin-bottom: 8px;
   font-weight: bold;
   color: #333333;
-  text-decoration: none;
 }
 
 .tweet_user {
@@ -205,14 +244,3 @@
   text-decoration: none;
 }
 
-
-.footer {
-  background-color: #999;
-  padding: 10px;
-  width: 100vw;
-}
-.copyright {
-  text-align: center;
-  color: #fff;
-  font-size: 10px;
-}

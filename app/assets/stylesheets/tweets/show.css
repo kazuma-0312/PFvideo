@@ -159,3 +159,15 @@
 .comment-flag-icon {
   margin: 10px 5px 0 0;
 }
+.comments_list {
+  margin-top: 20px;
+  font-size: 15px;
+}
+.comment_user {
+  font-size: 12px;
+  color: #999;
+  margin-left: 20px;
+}
+.tweet_favorite {
+  color: #333333;
+}

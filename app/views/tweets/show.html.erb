@@ -30,7 +30,7 @@
             <% @comments.reverse_each do |comment| %>
               <li class="comments_list">
                 <p><%= comment.text %>
-                <%= link_to comment.user.nickname, user_path(comment.user), class: :comment_user %></p>
+                <%= link_to comment.user.nickname, user_path(comment.user), class: "comment_user" %></p>
               </li>
             <% end %>
           <% end %>  
@@ -51,9 +51,9 @@
 
       <div class="favorite-btn">  
       <% if current_user.liked_by?(@tweet.id) %>
-      <%= link_to 'いいねを外す', tweet_destroy_like_path(@tweet), method: :DELETE %><%= @tweet.likes.count %>
+      <%= link_to 'いいねを外す', tweet_destroy_like_path(@tweet), method: :DELETE, class: "tweet_favorite"  %><%= @tweet.likes.count %>
       <% else %>     
-        <%= link_to 'いいね', tweet_create_like_path(@tweet), method: :POST %>  <%= @tweet.likes.count %>
+        <%= link_to 'いいね', tweet_create_like_path(@tweet), method: :POST, class:"tweet_favorite" %>  <%= @tweet.likes.count %>
       <% end %>  
       </div>
       <div class="report-btn">
