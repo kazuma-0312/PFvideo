@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :tweets do
     resources :comments, only: :create
     post 'like/:id' => 'likes#create', as: 'create_like'
+    delete 'like/:id' => 'likes#destroy', as: 'destroy_like'
   end
   resources :users, only: :show
 end
