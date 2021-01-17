@@ -10,7 +10,7 @@
       <div class="card">
         <iframe width="350" height="250" src="https://www.youtube.com/embed/<%= tweet.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <div class="card_body">
-          <%= link_to tweet.title, tweet_path(tweet.id) %>
+          <%= link_to tweet.title, tweet_path(tweet.id), class:"tweet_title" %>
           <%= tweet.text%>
           <%= link_to "#{tweet.user.nickname}", user_path(tweet.user_id),class:"tweet_user" %>
         </div>
@@ -19,4 +19,3 @@
   <% end %> 
 </ul>
 </div>
-<%= render "shared/footer" %>
