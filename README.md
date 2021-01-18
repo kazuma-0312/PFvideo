@@ -10,9 +10,8 @@
 
 ### Association
 - has_many :tweets
-- has_many :rooms
-- has_many :entries
 - has_many :comments
+- has_many :likes
 
 ## tweetsテーブル
 
@@ -24,30 +23,9 @@
 | user          | references      | foreign_key: true        |
 
 ### Association
-- has_many :tags, through: :tweet_tag_relations
-- has_many :tweet_tag_relations
-- has_many :tweets
+- has_many :users
+- has_many :likes
 
-## tagsテーブル
-
-| Column        | Type           | Options                  |
-| ------------- | -------------- | ------------------------ |
-| name          | string         | nul:  false              |
-
-### Association
- has_many :tweet_tag_relations
- has_many :tweets, through: :tweet_tag_relations
-
-## tweet_tag_relationsテーブル
-
-| Column        | Type           | Options                  |
-| ------------- | -------------- | ------------------------ |
-| tweet_id      | references     | foreign_key: true        |
-| tag_id        | references     | foreign_key: true        |
-
-### Association
-- belongs_to :tweet
-- belongs_to :tag
 
 ## commentsテーブル
 
@@ -57,20 +35,18 @@
 | user_id       | references     | foreign_key: true        |
 | tweet_id      | references     | foreign_key: true        |
 
-### Association
-- has_many :user
-
 
 ### Association
-- belongs_to :user
-- belongs_to :room
+  - belongs_to :user
+  - belongs_to :tweet
 
-## commentsテーブル
+## likesテーブル
+
 | Column        | Type           | Options                  |
 | ------------- | -------------- | ------------------------ |
-| message       | text           | null: false              |
 | user_id       | references     | foreign_key: true        |
-| room_id       | references     | foreign_key: true        |
+| tweet_id      | references     | foreign_key: true        |
 
-- has_many :tweets
-- has_many :users
+### Association
+  - belongs_to :user
+  - belongs_to :tweet
