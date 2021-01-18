@@ -9,6 +9,4 @@ class LikesController < ApplicationController
     Like.find_by(user_id: current_user.id, tweet_id: params[:id]).destroy
     redirect_to tweet_path
   end
-
-
 end

@@ -5,9 +5,9 @@ RSpec.describe 'ツイート投稿', type: :system do
     @user = FactoryBot.create(:user)
     @tweet_text = Faker::Lorem.sentence
     @tweet_title = Faker::Lorem.sentence
-    @tweet_youtube_url = "https://www.youtube.com/watch?v=oyqqcgpWzsM"
+    @tweet_youtube_url = 'https://www.youtube.com/watch?v=oyqqcgpWzsM'
   end
-  context 'ツイート投稿ができるとき'do
+  context 'ツイート投稿ができるとき' do
     it 'ログインしたユーザーは新規投稿できる' do
       # ログインする
       sign_in(@user)
@@ -20,9 +20,9 @@ RSpec.describe 'ツイート投稿', type: :system do
       fill_in 'tweet_text', with: @tweet_text
       fill_in 'tweet_url', with: @tweet_youtube_url
       # 送信するとTweetモデルのカウントが1上がることを確認する
-      expect{
+      expect  do
         find('input[name="commit"]').click
-      }.to change { Tweet.count }.by(1)
+      end.to change { Tweet.count }.by(1)
       # トップページに遷移する
       visit root_path
       # トップページには先ほど投稿した内容のツイートが存在することを確認する（タイトル）
@@ -31,7 +31,7 @@ RSpec.describe 'ツイート投稿', type: :system do
       expect(page).to have_content(@tweet_text)
     end
   end
-  context 'ツイート投稿ができないとき'do
+  context 'ツイート投稿ができないとき' do
     it 'ログインしていないと新規投稿ページに遷移できない' do
       # トップページに遷移する
       visit root_path
@@ -63,9 +63,9 @@ RSpec.describe 'ツイート編集', type: :system do
       fill_in 'tweet_title', with: "#{@tweet1.title}+編集したタイトル"
       fill_in 'tweet_text', with: "#{@tweet1.text}+編集したテキスト"
       # 編集してもTweetモデルのカウントは変わらないことを確認する
-      expect{
+      expect  do
         find('input[name="commit"]').click
-      }.to change { Tweet.count }.by(0)
+      end.to change { Tweet.count }.by(0)
       # トップページに遷移する
       visit root_path
       # トップページには先ほど変更した内容のツイートが存在することを確認する（タイトル）
@@ -121,8 +121,8 @@ RSpec.describe 'ツイート詳細', type: :system do
     # 詳細ページに遷移する
     visit tweet_path(@tweet)
     # 詳細ページにツイートの内容が含まれている
-    expect(page).to have_content("#{@tweet.title}")
-    expect(page).to have_content("#{@tweet.text}")
+    expect(page).to have_content(@tweet.title.to_s)
+    expect(page).to have_content(@tweet.text.to_s)
     # コメント用のフォームが存在する
     expect(page).to have_selector 'form'
   end
@@ -132,7 +132,7 @@ RSpec.describe 'ツイート詳細', type: :system do
     # 詳細ページに遷移する
     visit tweet_path(@tweet)
     # 詳細ページにツイートの内容が含まれている
-    expect(page).to have_content("#{@tweet.title}")
-    expect(page).to have_content("#{@tweet.text}")
+    expect(page).to have_content(@tweet.title.to_s)
+    expect(page).to have_content(@tweet.text.to_s)
   end
 end

@@ -4,7 +4,7 @@ class TweetsController < ApplicationController
   def index
     @tweets = Tweet.includes(:user)
   end
-  
+
   def new
     @tweet = Tweet.new
   end
@@ -16,7 +16,7 @@ class TweetsController < ApplicationController
     @tweet.youtube_url = url
     if @tweet.save
       redirect_to root_path
-    else  
+    else
       render :new
     end
   end
@@ -30,7 +30,6 @@ class TweetsController < ApplicationController
   def edit
     redirect_to root_path unless current_user.id == @tweet.user_id
   end
-    
 
   def update
     if @tweet.update(tweet_params)
@@ -41,12 +40,11 @@ class TweetsController < ApplicationController
   end
 
   def destroy
-    
     if current_user.id == @tweet.user_id
       if @tweet.destroy
         redirect_to root_path
       else
-        render :show, alert: "Failed to delete"
+        render :show, alert: 'Failed to delete'
       end
     else
       redirect_to root_path
@@ -58,6 +56,7 @@ class TweetsController < ApplicationController
   end
 
   private
+
   def tweet_params
     params.require(:tweet).permit(:title, :youtube_url, :text).merge(user_id: current_user.id)
   end
