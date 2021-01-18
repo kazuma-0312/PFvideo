@@ -4,9 +4,8 @@ class CommentsController < ApplicationController
     @tweet = Tweet.find(params[:tweet_id])
     @comment = Comment.new(comment_params)
     if @comment.save
-      redirect_to tweet_path(@tweet)
-    else
-      render :show
+      @user = @comment.user
+      ActionCable.server.broadcast 'comment_channel', content: @comment, user: @user
     end
   end
 
