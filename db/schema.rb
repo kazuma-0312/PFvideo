@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 2021_01_16_140548) do
     t.string "youtube_url", null: false
     t.text "text", null: false
     t.bigint "user_id"
+    t.string "comment_id"
+    t.string "like_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_tweets_on_user_id"

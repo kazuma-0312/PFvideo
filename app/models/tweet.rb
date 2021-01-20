@@ -1,7 +1,7 @@
 class Tweet < ApplicationRecord
-  belongs_to :user
-  has_many :comments, dependent: :destroy
-  has_many :likes
+  belongs_to :user, optional: true
+  has_many :comments, foreign_key: :tweet_id, dependent: :destroy
+  has_many :likes, foreign_key: :tweet_id, dependent: :destroy
 
   with_options presence: true do
     validates :title

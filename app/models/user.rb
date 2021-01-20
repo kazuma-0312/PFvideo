@@ -5,8 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :tweets
-  has_many :comments
-  has_many :likes, dependent: :destroy
+  has_many :comments, foreign_key: :user_id, dependent: :destroy
+  has_many :likes, foreign_key: :user_id, dependent: :destroy
+
   has_many :like_tweets, through: :likes, source: :tweet
 
   def liked_by?(tweet_id)
