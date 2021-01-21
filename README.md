@@ -1,7 +1,7 @@
 # PFvideo
 ### YouTubeが見えるYouTube投稿アプリケーション
 
-[![Image from Gyazo](https://gyazo.com/d78251752c719cf18a7bfaf5ef964dc9)]
+![demo](https://gyazo.com/d78251752c719cf18a7bfaf5ef964dc9)]
 ## usersテーブル
 
 | Column        | Type           | Options                  |
