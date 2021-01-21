@@ -51,9 +51,9 @@
 
       <div class="favorite-btn">  
       <% if current_user.liked_by?(@tweet.id) %>
-      <%= link_to 'いいねを外す', tweet_destroy_like_path(@tweet), method: :DELETE, class: "tweet_favorite"  %><%= @tweet.likes.count %>
+      <%= link_to 'お気に入りを外す', tweet_destroy_like_path(@tweet), method: :DELETE, class: "tweet_favorite"  %><%= @tweet.likes.count %>
       <% else %>     
-        <%= link_to 'いいね', tweet_create_like_path(@tweet), method: :POST, class:"tweet_favorite" %>  <%= @tweet.likes.count %>
+        <%= link_to 'お気に入り', tweet_create_like_path(@tweet), method: :POST, class:"tweet_favorite" %>  <%= @tweet.likes.count %>
       <% end %>  
       </div>
       <div class="report-btn">
