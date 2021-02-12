@@ -3,6 +3,7 @@
   <div class="tweets-sell-main">
     <h2 class="tweets-sell-title">投稿の情報を入力</h2>
     <%= form_with(model: @tweet, local: true) do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
       <div class="weight-bold-text">
         動画のタイトル
         <span class="indispensable">必須</span>
