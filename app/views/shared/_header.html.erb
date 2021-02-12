@@ -4,12 +4,10 @@
     <%= form_with(url: search_tweets_path, local: true, method: :get, class: "search-form") do |f| %>
       <%= f.text_field :keyword, placeholder: 'キーワードから探す',class: 'input-box' %>
       <%= f.submit "検索", class: "search-button" %>
-        <%#= image_tag "search.png", class:"search-icon" %>
      <% end %>   
   </div>
   <div class='nav'>
     <ul class='lists-right'>
-      <%# deviseを導入できたら、ログインの有無で表示が変わるように分岐しましょう%>
       
     <% if user_signed_in? %>
       <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li>
@@ -18,11 +16,10 @@
       <li><%= link_to 'Mypage', "/users/#{current_user.id}", class: "mypage"%></li>
       <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "logout"%> </li>
     <% else %>
-
+      <li><%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "login" %></li>
       <li><%= link_to 'Log in', new_user_session_path, class: "login" %></li>
       <li><%= link_to 'Sing up', new_user_registration_path, class: "sign-up" %></li>
     <% end %>  
-      <%# //deviseを導入できたら、ログインの有無で表示が変わるように分岐しましょう%>
     </ul>
   </div>
 </header>

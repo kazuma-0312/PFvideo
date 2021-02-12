@@ -1,13 +1,9 @@
-<%= render "shared/header" %>
-  <%# 投稿一覧 %>
-<main class="main">
-    <%# ログインしているときは以下を表示する %>
+<div class="main">
     <% if user_signed_in? %>
       <div class="greeting">
         <%= link_to 'New Tweet',new_tweet_path, class:"shadow" %>
       </div>
     <% end %>
-    <%# // ログインしているときは上記を表示する %>
   <ul class='tweet-lists'>  
   <% @tweets.each do |tweet| %>  
     <div class="card_wrapper">
@@ -22,4 +18,4 @@
     </div>
   <% end %>  
   </ul>
-</main>
+</div>
