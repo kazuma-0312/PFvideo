@@ -1,7 +1,7 @@
 # PFvideo
 ### YouTubeが見えるYouTube投稿アプリケーション
 
-![](https://i.gyazo.com/d78251752c719cf18a7bfaf5ef964dc9.png)
+![](https://i.gyazo.com/ad03e3327de06b18c43296a0bf1cd960.pmg)
 
 # 概要
 
@@ -21,13 +21,13 @@
 ####  一覧画面へ遷移する
 ####  新規投稿は真ん中New Tweetをクリック
 ####  投稿完了後は一覧画面へ戻る<br>
-![](https://i.gyazo.com/b4bd13fb4f2082b19043f351e2dfea0d.gif)
-![](https://i.gyazo.com/60923c509856a5ca9c7bd44ea46317aa.gif)
+![](https://i.gyazo.com/08555bd84e23e4732882f2f81be1190c.gif)
+![](https://i.gyazo.com/80b1a06a755b3845359b61b115e54198.gif)
 <br>
 
 #### 一覧画面から１つの投稿のタイトルを選択 → 投稿詳細画面へ遷移する
 #### 投稿者本人であれば投稿の編集・削除が投稿詳細画面から可能になる<br>
-![](https://i.gyazo.com/530b0d2c99307556cd180dbac33d8353.gif)
+![](https://i.gyazo.com/c5a09eeebb815619b7b8c24716cf7889.gif)
 <br>
 
 #### 投稿詳細画面からコメントができる
